@@ -1,0 +1,85 @@
+@import "variables";
+@import "mixin";
+
+* {
+	@include box-sizing;
+}
+
+body {
+	@include flex;
+	@include align_items;
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	font-family: $font;
+	background : $bg_img ;
+	@include bg_size;
+	text-align: center;	
+	overflow: hidden;
+}
+
+.menu_wrapper {
+	position: relative;
+	overflow: hidden;
+	@include preserve;
+
+	&::before {
+		position: absolute;
+		content: "";
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: $bg_menu;
+		opacity: .6;
+		z-index: -1;
+		@background filter(blur(.05rem));
+	}
+
+	h1 {
+		text-align: right;
+		margin-right: 5.2rem;
+
+		span {
+			font-size: 3.3rem;
+		}
+	}
+
+	ul {
+		display: inline-block;
+		list-style: none;
+	}
+}
+
+.list {
+	text-align: right;
+
+	.item {
+		position: relative;
+		
+		&::before {
+			content: "";
+			position: absolute;
+			top: 58%;
+			left: -530%;
+			width: 600%;
+			height: 2%;
+			background: $line;
+			z-index: -1;
+		}
+	}
+}
+
+.price {
+	text-align: left;
+}
+
+::-moz-selection{
+	color: $bg_menu;
+  background: $color_text;
+}
+
+::selection{
+	color: $bg_menu;
+  background: $color_text;
+}
